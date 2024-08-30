@@ -13,6 +13,18 @@ const App = () => {
 
   // experiment with useEffect here!
 
+  // useEffect (() => {
+  //   console.log("hello")
+  // });  <-------------------------  No dependency array will cause the effect to run everytime the component re-renders. Rarely used
+
+  // useEffect (() => {
+  //   console.log("hello world")
+  // }, []); <----------------------  Empty dependency array will make sure the effect only runs on the initial rendering of the component
+
+  useEffect (() => {
+    console.log("hello world!")
+  }, [personType]); // <------------  Putting a stateful value in the array will cause the effect to run each time the value changes
+
   return (
     <div className="App">
       <div className="form-element">
@@ -39,7 +51,7 @@ const App = () => {
           <option value="afternoon">afternoon</option>
           <option value="evening">evening</option>
         </select>
-        <h1>Hello there, {name} !</h1>
+        <h1>Hello there, {name}!</h1>
         <h3>
           You are{" "}
           {personType === "morning" || personType === "lovely" ? "a" : "an"}{" "}
